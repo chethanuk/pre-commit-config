@@ -6,6 +6,7 @@ see [here](https://github.com/laactech/pre-commit-config-latest)**
 
 [pre-commit](https://pre-commit.com/) is used to install four Python code linting and
 formatting tools:
+
 * [flake8](http://flake8.pycqa.org/en/latest/) a Python style guide linter
 * [bandit](https://github.com/PyCQA/bandit) a Python security vulnerability linter
 * [black](https://black.readthedocs.io/en/stable/) a Python automatic code formatter
