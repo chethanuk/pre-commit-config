@@ -1,0 +1,10 @@
+# Pycharm
+.idea/*
+.python-version
+venv/
+*.pyc
+/pre_commit_hooks.egg-info
+/.cache/
+/.idea/
+/.coverage
+/venv/
