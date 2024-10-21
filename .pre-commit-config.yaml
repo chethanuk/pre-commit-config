@@ -3,62 +3,62 @@ default_language_version:
     python: python3
 default_stages:
     - prepare-commit-msg
-    - commit
-    - push
+    - pre-commit
+    - pre-push
     - post-commit
 exclude: ^$
 fail_fast: true
 repos:
     - repo: https://github.com/psf/black
-      rev: 20.8b1
+      rev: 24.10.0
       hooks:
           - id: black
-    - repo: https://gitlab.com/pycqa/flake8
-      rev: 3.8.4
+    - repo: https://github.com/PyCQA/flake8
+      rev: 7.1.1
       hooks:
           - id: flake8
             additional_dependencies:
                 - flake8-bugbear
     - repo: https://github.com/PyCQA/bandit
-      rev: 1.7.0
+      rev: 1.7.10
       hooks:
           - id: bandit
             args:
                 - -ll
             files: .py$
     - repo: https://github.com/PyCQA/isort
-      rev: 5.6.4
+      rev: 5.13.2
       hooks:
           - id: isort
     - repo: https://github.com/PyCQA/pydocstyle
-      rev: 5.1.1
+      rev: 6.3.0
       hooks:
           - id: pydocstyle
     - repo: https://github.com/codespell-project/codespell
-      rev: v2.0.0
+      rev: v2.3.0
       hooks:
           - id: codespell
-    - repo: https://github.com/asottile/reorder_python_imports
-      rev: v2.3.6
+    - repo: https://github.com/asottile/reorder-python-imports
+      rev: v3.14.0
       hooks:
           - id: reorder-python-imports
             args:
                 - --py3-plus
     - repo: https://github.com/pre-commit/mirrors-mypy
-      rev: v0.790
+      rev: v1.12.1
       hooks:
           - id: mypy
     - repo: https://github.com/asottile/dead
-      rev: v1.3.0
+      rev: v1.5.2
       hooks:
           - id: dead
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.1.0
+      rev: 0.2.3
       hooks:
           - id: yamlfmt
           # args: [--mapping, '2', --sequence, '4', --offset, '2']
-    - repo: git://github.com/adrienverge/yamllint
-      rev: v1.25.0
+    - repo: https://github.com/adrienverge/yamllint
+      rev: v1.35.1
       hooks:
           - id: yamllint
             files: \.(yaml|yml)$
@@ -66,7 +66,7 @@ repos:
             exclude: pyproject.toml
             entry: yamllint --strict
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v3.4.0
+      rev: v5.0.0
       hooks:
           # - id: no-commit-to-branch
           #   args:
@@ -80,19 +80,19 @@ repos:
           - id: check-executables-have-shebangs
           - id: check-merge-conflict
             stages:
-                - commit
+                - pre-commit
           - id: check-added-large-files
             stages:
-                - commit
+                - pre-commit
           - id: trailing-whitespace
             stages:
-                - commit
+                - pre-commit
           - id: mixed-line-ending
             stages:
-                - commit
+                - pre-commit
           - id: check-executables-have-shebangs
             stages:
-                - commit
+                - pre-commit
           - id: check-json
           - id: check-merge-conflict
           - id: check-symlinks
@@ -118,20 +118,20 @@ repos:
             args:
                 - --markdown-linebreak-ext=md
     - repo: https://github.com/asottile/pyupgrade
-      rev: v2.7.4
+      rev: v3.18.0
       hooks:
           - id: pyupgrade
             args:
                 - --py37-plus
     - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-      rev: v1.1.3
+      rev: v1.3.3
       hooks:
           - id: python-safety-dependencies-check
             args:
                 - check
                 - --full-report
     - repo: https://github.com/mattlqx/pre-commit-sign
-      rev: v1.1.3
+      rev: v1.2.0
       hooks:
           - id: sign-commit
     - repo: https://github.com/IamTheFij/docker-pre-commit
@@ -140,7 +140,7 @@ repos:
           - id: docker-compose-check
           - id: hadolint
     - repo: https://github.com/thoughtworks/talisman
-      rev: v1.11.0
+      rev: v1.32.0
       hooks:
           - id: talisman-commit
           - id: talisman-push
